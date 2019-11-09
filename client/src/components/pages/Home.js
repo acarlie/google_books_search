@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from 'antd/es/button';
 
 
-class Home extends Component(){
+class Home extends Component {
     render(){
         return(
             <div>
