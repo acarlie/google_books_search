@@ -1,1 +1,9 @@
 @import '~antd/dist/antd.css';
+
+.logo{
+    float: left;
+    display: inline-block;
+    padding-right: 24px;
+    color: white;
+    line-height: '64px';
+}

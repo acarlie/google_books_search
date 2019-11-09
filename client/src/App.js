@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 // antd
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 import './App.css';
 
 //Pages
@@ -14,31 +14,14 @@ import NoMatch from './components/pages/NoMatch';
 
 
 function App() {
-  const { Header, Content, Footer } = Layout;
+  const { Content, Footer } = Layout;
 
   return (
     <Router>
       <Layout className="layout">
-        <Header>
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['1']}
-            style={{ lineHeight: '64px' }}
-          >
-            <Menu.Item key="1">
-              Home
-              <Link to="/" />
-            </Menu.Item>
-            <Menu.Item key="2">
-              Saved
-              <Link to="/saved" />
-            </Menu.Item>
-          </Menu>
-        </Header>
+        <Nav />
 
-        <Content style={{ padding: '0 50px' }}>
+        <Content style={{ padding: '0 50px', minHeight: '100vh' }}>
           <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
             <Switch>
               <Route exact path="/" component={Home} />
@@ -48,6 +31,7 @@ function App() {
             </Switch>
           </div>
         </Content>
+
         <Footer style={{ textAlign: 'center' }}>Footer Here</Footer>
       </Layout>
     </Router>
