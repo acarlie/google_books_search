@@ -1,16 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // antd
 import { Layout } from 'antd';
 import './App.css';
 
 //Pages
-import Home from './components/pages/Home';
-import Saved from './components/pages/Saved';
-import Book from './components/pages/Book';
-import Nav from './components/Nav';
-import NoMatch from './components/pages/NoMatch';
+import Home from '../../pages/Home';
+import Saved from '../../pages/Saved';
+import Book from '../../pages/Book';
+import Nav from '../Nav';
+import NoMatch from '../../pages/NoMatch';
 
 
 function App() {

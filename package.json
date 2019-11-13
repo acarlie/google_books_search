@@ -26,12 +26,18 @@
   "homepage": "https://github.com/acarlie/google_books_search#readme",
   "devDependencies": {
     "concurrently": "^4.1.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
     "nodemon": "^1.18.7"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "express": "^4.16.3",
-    "mongoose": "^5.3.16",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "mongoose": "^5.3.16"
   }
 }
