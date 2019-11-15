@@ -7,7 +7,8 @@ class Results extends Component {
     handleSave = (event) => {
         const book = JSON.parse(event.target.value);
         book.saved = true;
-        API.saveBook(book)
+        API
+            .saveBook(book)
             .then(res => console.log(res))
             .catch(err => console.log(err));
     }
@@ -18,7 +19,7 @@ class Results extends Component {
             <>
                 {
                     books.map((x, i) => {
-                        const { title, authors, description, image, link } = x;
+                        const { title, authors, description, image, link, _id } = x;
                         return (
                             <Row key={i} gutter={[{}, 16]}>
                                 <Col span={24}>
@@ -27,7 +28,8 @@ class Results extends Component {
                                         extra={
                                             <ButtonGroup>
                                                 <Button href={link} target='_blank'>View</Button>
-                                                <Button value={JSON.stringify(x)} onClick={this.handleSave}>Save</Button>
+                                                { !_id && <Button value={JSON.stringify(x)} onClick={this.handleSave}>Save</Button> }
+                                                { _id && <Button value={_id} onClick={this.props.handleDelete}>Delete</Button> }
                                             </ButtonGroup>
                                         }>
                                             <Row gutter={12}>

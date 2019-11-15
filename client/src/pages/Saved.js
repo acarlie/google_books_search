@@ -12,6 +12,18 @@ class Saved extends Component {
         }
     }
 
+    handleDelete = (event) => {
+        const id = event.target.value;
+        API
+            .deleteBook(id)
+            .then(res => {
+                const saved = this.state.saved.filter(el => el._id !== id);
+                this.setState({
+                    saved
+                })
+            })
+    }
+
     componentDidMount () {
         API
             .getBooks()
@@ -27,7 +39,7 @@ class Saved extends Component {
         return(
             <Row>
                 <Col span={14} offset={5}>
-                    { this.state.saved.length > 0 && <Results books={this.state.saved} /> }
+                    { this.state.saved.length > 0 && <Results books={this.state.saved} handleDelete={this.handleDelete} /> }
                     { this.state.saved.length === 0 && <Alert message="No saved books found" type="error" showIcon/> }
                 </Col>
             </Row>

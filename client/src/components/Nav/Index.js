@@ -11,7 +11,6 @@ class Nav extends Component {
                 <Menu
                     theme="dark"
                     mode="horizontal"
-                    defaultSelectedKeys={['1']}
                     style={{ lineHeight: '64px', overflow: 'hidden' }}
                 >
                     <Menu.Item key="1">
