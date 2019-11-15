@@ -3,10 +3,6 @@ const mongoose = require('mongoose');
 const routes = require('./routes');
 const app = express();
 const PORT = process.env.PORT || 3001;
-const axios = require('axios');
-
-axios.get('https://www.googleapis.com/books/v1/volumes?q=hamlet')
-    .then((data) => console.log(data.data.items[0]));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -14,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-// app.use(routes);
+app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', { useNewUrlParser: true, useUnifiedTopology: true });
 

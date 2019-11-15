@@ -18,7 +18,7 @@ class Home extends Component {
     }
 
     getBooks = () => {
-        API.googleBooks()
+        API.findBooks('catching fire')
             .then((res) => {
                 let data = res.data.items
                 const books = data.map((obj) => {
