@@ -24,6 +24,10 @@ const BookSchema = new Schema({
     },
     link: {
         type: String
+    },
+    saved: {
+        type: Boolean,
+        default: false
     }
 });
 

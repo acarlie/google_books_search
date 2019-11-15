@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Button from 'antd/es/button';
 import Results from './../components/Results';
+import { Row, Col } from 'antd';
 
 import API from "../utils/API";
 
@@ -19,12 +20,17 @@ class Home extends Component {
     }
 
     searchBooks = () => {
-        API.findGoogleBooks('catching fire')
+        API.findGoogleBooks('A Game of Thrones')
             .then((res) => {
                 let data = res.data.items
                 const books = data.map((obj) => {
                     const { title, authors, description, previewLink, imageLinks } = obj.volumeInfo;
-                    const { thumbnail } = imageLinks;
+                    const thumbnail = imageLinks ? imageLinks.thumbnail : '/images/default_book.jpg';
+                    console.log({title, 
+                        authors, 
+                        description, 
+                        link: previewLink, 
+                        image: thumbnail});
                     return { 
                         title, 
                         authors, 
@@ -42,9 +48,11 @@ class Home extends Component {
   
     render(){
         return(
-            <div>
-                <Results books={this.state.books} />
-            </div>
+            <Row>
+                <Col span={14} offset={5}>
+                    <Results books={this.state.books} />
+                </Col>
+            </Row>
         )
     }
 }
