@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { Card, Button, Col, Row } from 'antd';
+import API from '../../utils/API';
 const ButtonGroup = Button.Group;
 
 class Results extends Component {
+    handleSave = (event) => {
+        const book = JSON.parse(event.target.value);
+        book.saved = true;
+        API.saveBook(book)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
+
     render(){
         const { books } = this.props;
         return(
@@ -18,7 +27,7 @@ class Results extends Component {
                                         extra={
                                             <ButtonGroup>
                                                 <Button href={link} target='_blank'>View</Button>
-                                                <Button>Save</Button>
+                                                <Button value={JSON.stringify(x)} onClick={this.handleSave}>Save</Button>
                                             </ButtonGroup>
                                         }>
                                             <Row gutter={12}>

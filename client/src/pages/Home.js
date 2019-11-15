@@ -26,11 +26,6 @@ class Home extends Component {
                 const books = data.map((obj) => {
                     const { title, authors, description, previewLink, imageLinks } = obj.volumeInfo;
                     const thumbnail = imageLinks ? imageLinks.thumbnail : '/images/default_book.jpg';
-                    console.log({title, 
-                        authors, 
-                        description, 
-                        link: previewLink, 
-                        image: thumbnail});
                     return { 
                         title, 
                         authors, 
