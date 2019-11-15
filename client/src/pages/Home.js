@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Button from 'antd/es/button';
+// import Button from 'antd/es/button';
+import Results from './../components/Results';
 
 import API from "../utils/API";
 
@@ -14,20 +15,23 @@ class Home extends Component {
     }
 
     componentDidMount () {
-        this.getBooks();
+        this.searchBooks();
     }
 
-    getBooks = () => {
-        API.findBooks('catching fire')
+    searchBooks = () => {
+        API.findGoogleBooks('catching fire')
             .then((res) => {
                 let data = res.data.items
                 const books = data.map((obj) => {
-                    const vol = obj.volumeInfo;
-                    return {
-                        title: vol.title,
-                        author: vol.authors,
-                        desc: vol.description || 'No Description Provided'
-                    }
+                    const { title, authors, description, previewLink, imageLinks } = obj.volumeInfo;
+                    const { thumbnail } = imageLinks;
+                    return { 
+                        title, 
+                        authors, 
+                        description, 
+                        link: previewLink, 
+                        image: thumbnail
+                    };
                 })
                 this.setState({
                     books
@@ -39,13 +43,7 @@ class Home extends Component {
     render(){
         return(
             <div>
-                Home
-                {
-                    this.state.books.map((x, i) => {
-                        return <div key={i}>{x.title}, {x.author}</div>
-                    })
-                }
-                <Button> Hello </Button>
+                <Results books={this.state.books} />
             </div>
         )
     }

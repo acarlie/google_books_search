@@ -12,7 +12,7 @@ class Nav extends Component {
                     theme="dark"
                     mode="horizontal"
                     defaultSelectedKeys={['1']}
-                    style={{ lineHeight: '64px' }}
+                    style={{ lineHeight: '64px', overflow: 'hidden' }}
                 >
                     <Menu.Item key="1">
                         Home

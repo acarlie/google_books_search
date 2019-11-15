@@ -12,7 +12,7 @@ const BookSchema = new Schema({
         required: true,
         default: 'Author Unknown'
     },
-    desc: {
+    description: {
         type: String,
         required: true,
         default: 'No description available'

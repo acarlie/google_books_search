@@ -22,7 +22,7 @@ function App() {
         <Nav />
 
         <Content style={{ padding: '0 50px', minHeight: '100vh' }}>
-          <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+          <div style={{ padding: 24, minHeight: 280 }}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/saved" component={Saved} />
