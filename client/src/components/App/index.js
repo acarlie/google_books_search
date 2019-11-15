@@ -9,7 +9,7 @@ import './App.css';
 import Home from '../../pages/Home';
 import Saved from '../../pages/Saved';
 import Book from '../../pages/Book';
-import Nav from '../../components/Nav';
+import Nav from './../Nav';
 import NoMatch from '../../pages/NoMatch';
 
 
