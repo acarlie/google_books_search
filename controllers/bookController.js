@@ -13,6 +13,12 @@ module.exports = {
             .then(books => res.json(books))
             .catch(err => res.status(422).json(err));
     },
+    findSaved: function (req, res) {
+        db.Book
+            .find({ saved: 'true' })
+            .then(books => res.json(books))
+            .catch(err => res.status(422).json(err));
+    },
     findOne: function (req, res) {
         db.Book
             .findById(req.params.id)

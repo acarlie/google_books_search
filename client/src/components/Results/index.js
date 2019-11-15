@@ -35,7 +35,7 @@ class Results extends Component {
                                                     <img src={image} alt="" style={{ width: '100%' }}/>
                                                 </Col>
                                                 <Col span={18}>
-                                                    <h4>Author(s): {authors.join()}</h4>
+                                                    <h4>Author(s): {authors && authors.join()}</h4>
                                                     <p>
                                                         { description && `${description.substring(0, 255)}...` }
                                                         { !description && 'Description not found' }
