@@ -37,8 +37,8 @@ class Saved extends Component {
 
     render(){
         return(
-            <Row>
-                <Col span={14} offset={5}>
+            <Row type='flex' justify='center' gutter={[{}, 16]}>
+                 <Col xs={24} sm={24} md={14} lg={14} xl={14}>
                     { this.state.saved.length > 0 && <Results books={this.state.saved} handleDelete={this.handleDelete} /> }
                     { this.state.saved.length === 0 && <Alert message="No saved books found" type="error" showIcon/> }
                 </Col>

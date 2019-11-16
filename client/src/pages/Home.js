@@ -39,8 +39,8 @@ class Home extends Component {
   
     render(){
         return(
-            <Row gutter={[{}, 16]}>
-                <Col span={14} offset={5}>
+            <Row type='flex' justify='center' gutter={[{}, 16]}>
+                <Col xs={24} sm={24} md={14} lg={14} xl={14}>
                     <Card>
                         <h2>Search Google Books</h2>
                         <Search
@@ -49,7 +49,7 @@ class Home extends Component {
                         />
                     </Card>
                 </Col>
-                <Col span={14} offset={5}>
+                <Col xs={24} sm={24} md={14} lg={14} xl={14}>
                     { this.state.books.length > 0 && <Results books={this.state.books} /> }
                     { this.state.books.length === 0 && <Alert message="Search above to see book results." type="info" showIcon/> }
                 </Col>
